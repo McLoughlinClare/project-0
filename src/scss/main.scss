@@ -6,7 +6,7 @@ body {
   margin: 30px;
   font-family: "Georgia", serif;
   line-height: 1.8em;
-  color: #333;
+  color: #F8E9A1;
 }
 
 /* Give headings their own font */
@@ -32,14 +32,14 @@ h1, h2, h3, h4 {
   text-align: center;
   margin: 70px;
   padding: 10px;
-  background: #ebedf2;
+  background: #A8DE;
   border: 1px solid #333;
 }
 
 .wideBox h1 {
   font-weight: bold;
   margin: 20px;
-  color: #666;
+  color: #A8DE;
   font-size: 1.5em;
 }
 
@@ -47,14 +47,14 @@ h1, h2, h3, h4 {
 
 #cardSlots {
   margin: 50px auto 0 auto;
-  background: #ddf;
+  background: #374785;
 }
 
 /* The initial pile of unsorted cards */
 
 #cardPile {
   margin: 0 auto;
-  background: #ffd;
+  background: #5DA2D5;
 }
 
 #cardSlots, #cardPile {
@@ -84,7 +84,7 @@ h1, h2, h3, h4 {
   -webkit-border-radius: 10px;
   border-radius: 10px;
   margin: 0 0 0 10px;
-  background: #fff;
+  background: #5DA2D5;
 }
 
 #cardSlots div:first-child, #cardPile div:first-child {
@@ -102,7 +102,7 @@ h1, h2, h3, h4 {
 #cardPile div {
   background: #666;
   color: #fff;
-  font-size: 50px;
+  font-size: 16px;
   text-shadow: 0 0 3px #000;
 }
 
@@ -114,16 +114,16 @@ h1, h2, h3, h4 {
 
 /* Individually coloured cards */
 
-#card0.correct { background: red; }
-#card1.correct { background: brown; }
-#card2.correct { background: orange; }
-#card3.correct { background: yellow; }
-#card4.correct { background: green; }
-#card5.correct { background: cyan; }
-#card6.correct { background: blue; }
-#card7.correct { background: indigo; }
-#card8.correct { background: purple; }
-#card9.correct { background: violet; }
+#card0.correct { background: #F78888; }
+#card1.correct { background: #F3D250; }
+#card2.correct { background: #90CCD4; }
+#card3.correct { background: #5DA; }
+#card4.correct { background: #F78888; }
+#card5.correct { background: #F3D250; }
+#card6.correct { background: #90CCD4; }
+#card7.correct { background: #5DA; }
+#card8.correct { background: #F78888; }
+#card9.correct { background: #F3D250; }
 
 
 /* "You did it!" message */

@@ -36,13 +36,22 @@ function init() {
     return newArray;
   }
 
-  const numbers = ['a', 'b', 'c', 'd', 'e'];
+  let numbers = ['Proton', 'Neutron', 'Positron', '\u03C0+','\u03C0-', 'K+','K-','\u03C0\u2070'];
   const shuffledNumbers = shuffleArray(numbers);
+  const answers= [];
+  answers[0]= 'uud';
+  answers[1]= 'udd';
+  answers[2]='\u203Eu';
+  answers[3]='u-d';
+  answers[4]='-ud';
+  answers[5]='-ud';
+  answers[6]='-du';
+  answers[7]='u-u';
+
 // Create the card slots
-  function valueAssign() {
-    for ( let i=0; i<numbers.length; i++ ) {
-      console.log(Object.values(numbers[i]));
-      $('<div />', { text: numbers[i], 'data-position': i + 1 }).appendTo('#cardSlots')
+  function cardSlotAssign() {
+    for ( let i=0; i<answers.length; i++ ) {
+      $('<div />', { text: answers[i], 'data-position': i + 1 }).appendTo('#cardSlots')
       .droppable( {
         accept: '#cardPile div',
         hoverClass: 'hovered',
@@ -50,9 +59,9 @@ function init() {
       } );
     }
   }
-  valueAssign();
+  cardSlotAssign();
   //  // Create the pile of shuffled cards
-  function keyAssign(){
+  function cardAssign(){
 
     for ( let i=0; i<shuffledNumbers.length; i++ ) {
       $('<div />', { text: shuffledNumbers[i], 'data-position': numbers.indexOf(shuffledNumbers[i]) + 1 }).attr( 'id', 'card'+i ).appendTo( '#cardPile' ).draggable( {
@@ -63,7 +72,7 @@ function init() {
       } );
     }
   }
-  keyAssign();
+  cardAssign();
 
 
 
