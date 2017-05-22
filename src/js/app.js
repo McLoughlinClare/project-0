@@ -16,11 +16,13 @@ let slots =slotsOne;
 let numbers = numbersOne;
 
 let correctClassification = 0;
+
+
 //run function for the first time for turn 1.
 $( init );
 
 function init() {
-  // Hide the success message
+  // Show only the first game.
   $('#levelTwo').hide();
   $('#levelThree').hide();
 
@@ -30,7 +32,7 @@ function init() {
   console.log(numbers);
   cardSlotAssign(slots);
   cardAssign(numbers);
-
+  //skip button for development purposes only.
   $('.skip-button').click(() => {
     $('#levelTwo').show();
     $('#levelTwo').animate( {
@@ -42,7 +44,6 @@ function init() {
 }
 
 // Reset the game
-
 correctCards = 0;
 $('#cardPile').html( '' );
 
@@ -67,7 +68,6 @@ function cardSlotAssign() {
     } );
   }
 }
-
 
 // Create the pile of shuffled cards
 function cardAssign(){
@@ -97,7 +97,6 @@ function handleCardDrop( event, ui ) {
     ui.draggable.draggable( 'option', 'revert', false );
     correctCards++;
   }
-
   // If all the cards have been placed correctly move onto next round, unless final round, display success message.
   //to take player to 2nd round
   if (correctCards === 8 && turnNumber === 1){
@@ -122,6 +121,7 @@ function handleCardDrop( event, ui ) {
     $('#levelTwo').animate( {
       opacity: 1
     } );
+    $('#levelThree').hide();
     levelTwoPlay();
   }
 }
@@ -155,10 +155,9 @@ function levelTwoDropEvent( event, ui ) {
   var particleClassification = ui.draggable.data('position');
   if (particleDiv === particleClassification){
     ui.draggable.addClass( 'correct' );
-    //ui.draggable.draggable( 'disable' );
-    //ui.draggable.position( { of: $(this), my: 'center' } );
     ui.draggable.draggable( 'option', 'revert', false );
     correctClassification ++;
+    console.log(correctClassification);
 
     if ( correctClassification === 10) {
       console.log('Level Three');
@@ -168,8 +167,78 @@ function levelTwoDropEvent( event, ui ) {
       } );
       levelThreePlay();
     }
-
   }
+}
 
+const questions =[
+  {
+    answer: 'a',
+    question: `Which of the fundamental forces do Lepton's not experience?`,
+    options: [`Strong Nuclear Force`, `Weak Interaction`, `Electromagnetic force`]
+  },
+  {
+    answer: 'c',
+    question: `What is the charm quark's anti quark?`,
+    options: [`Up`, `Top`, `Strange`]
+  },
+  {
+    answer: 'c',
+    question: `Which particle type consists of quark-antiquark pairs?`,
+    options: [`Baryon`, `Lepton`, `Meson`]
+  },
+  {
+    answer: 'a',
+    question: `When is strangeness not conserved?`,
+    options: [`weak interaction`, `electromagnetic force`, `gravitational force`]
+  },
+  {
+    answer: 'b',
+    question: `Which of the following is not a Lepton?`,
+    options: [`Muon`, `Neutron`, `Tau`]
+  }
+];
+let answer = '';
+let correctQuestion = 0;
 
+function levelThreePlay (){
+  console.log('start of level 3');
+  for (let i = 0; i<questions.length; i++){
+    const chosenQuestion = questions[i].question;
+    const answerA = questions[i].options[0];
+    const answerB = questions[i].options[1];
+    const answerC = questions[i].options[2];
+    $('div.questions').html(chosenQuestion);
+    $('button.a').html(answerA);
+    $('button.b').html(answerB);
+    $('button.c').html(answerC);
+
+    buttonClick();
+    if (answer !== questions[i].answer){
+      alert('try again');
+    }
+
+    if (answer === questions[i].answer){
+      alert('correct');
+      correctQuestion++;
+    }
+    console.log(correctQuestion);
+  }
+}
+
+function buttonClick(){
+  $('.a').click(() => {
+    let answer = 'a';
+    console.log(answer);
+
+  });
+
+  $('.b').click(() => {
+    let answer = 'b';
+    console.log(answer);
+  });
+
+  $('.c').click(() => {
+    let answer = 'c';
+    console.log(answer);
+  });
 }
