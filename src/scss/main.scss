@@ -20,8 +20,6 @@ h1, h2, h3, h4 {
 #content {
   margin: 80px 70px;
   text-align: center;
-  -moz-user-select: none;
-  -webkit-user-select: none;
   user-select: none;
 }
 
@@ -62,11 +60,7 @@ h1, h2, h3, h4 {
   height: 150px;
   padding: 20px;
   border: 2px solid #333;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
   border-radius: 10px;
-  -moz-box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
-  -webkit-box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
   box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
 }
 
@@ -80,8 +74,6 @@ h1, h2, h3, h4 {
   padding-top: 40px;
   padding-bottom: 0;
   border: 2px solid #333;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
   border-radius: 10px;
   margin: 0 0 0 10px;
   background: #5DA2D5;
@@ -126,21 +118,82 @@ h1, h2, h3, h4 {
 #card9.correct { background: #F3D250; }
 
 
-/* "You did it!" message */
-#successMessage {
+/* "Level two*/
+#levelTwo {
   position: absolute;
-  left: 580px;
-  top: 250px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  background: #dfd;
+  border: 2px solid #333;
+  border-radius: 10px;
+  box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+  padding: 20px;
+  color: 	#333;
+  width: 80%;
+}
+
+.classifyparticle{
+  border: 2px solid #333;
+  border-radius: 10px;
+  width: 300px;
+  height: 400px;
+  z-index: 200;
+  display: inline-block;
+
+}
+#mesons{
+  background-color: #F3D250;
+
+}
+
+#baryons{
+  background-color: #F78888;
+}
+
+#lepton{
+  background-color: #5DA;
+}
+
+.unclassifiedParticle{
+  background-color: white;
+  width: 200px;
+  height: 85px;
+  margin-top: 5px;
+  border: 2px solid #333;
+  border-radius: 10px;
+  display: inline-grid;
+}
+.unclassifiedParticle.ui-draggable-dragging { background: #90CCD4; }
+
+
+
+#levelTwoHome {
+  position: absolute;
+  left: 700px;
+  top: 400px;
   width: 0;
   height: 0;
   z-index: 100;
   background: #dfd;
   border: 2px solid #333;
-  -moz-border-radius: 10px;
-  -webkit-border-radius: 10px;
   border-radius: 10px;
-  -moz-box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
-  -webkit-box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
   box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
   padding: 20px;
+}
+
+#levelThree {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 100;
+  background: #F3D250;
+  border: 2px solid #333;
+  border-radius: 10px;
+  box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+  padding: 20px;
+  color: 	#333;
+  width: 80%;
 }

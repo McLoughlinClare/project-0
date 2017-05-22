@@ -7,7 +7,7 @@
 
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.5.0/jquery.min.js"></script>
 
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
+  <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
 
   <script src="public/js/app.js" charset="utf-8"></script>
   <link rel="stylesheet" href="public/css/main.css">
@@ -15,17 +15,40 @@
 </head>
 <body>
   <h1>Project 0</h1>
+  <button class="skip-button">Skip</button>
 
-<div id="content">
+  <div id="content">
 
-  <div id="cardPile"> </div>
-  <div id="cardSlots"> </div>
+    <div id="cardPile"> </div>
+    <div id="cardSlots"> </div>
 
-  <div id="successMessage">
-    <h2>You did it!</h2>
-    <button>Play Again</button>
+    <div id="levelTwo">
+      <h2>Level 2</h2>
+      <div id="choices">
+        <div id="mesons" class="classifyparticle"> <h3> Mesons </h3></div>
+        <div id="baryons" class="classifyparticle"> <h3> Baryons </h3> </div>
+        <div id="lepton" class="classifyparticle"><h3> Leptons </h3> </div>
+      </div>
+      <div id="answers">
+        <div class="unclassifiedParticle mesons"> <p> A type of Hadron</p> </div>
+        <div class="unclassifiedParticle baryons"> <p> A type of Hadron</p> </div>
+        <div class="unclassifiedParticle leptons"> <p> No internal structure</p> </div>
+        <div class="unclassifiedParticle leptons"> <p> e.g. Electron, Muon and Tau</p> </div>
+        <div class="unclassifiedParticle baryons"> <p> Stable, made of three quarks </p></div>
+        <div class="unclassifiedParticle mesons"> <p> Made of one quark and onw anti-quark </p></div>
+        <div class="unclassifiedParticle mesons"> <p> Very unstable </p></div>
+        <div class="unclassifiedParticle baryons"> <p> e.g. Protons and neutrons </p></div>
+        <div class="unclassifiedParticle leptons"> <p> The hardest to find is the neutrino</p> </div>
+        <div class="unclassifiedParticle mesons"> <p> e.g. pion and kaon </p></div>
+      </div>
+    </div>
+
+    <div id="levelThree">
+      <h2>Level Three</h2>
+    </div>
+
+
+
   </div>
-
-</div>
 </body>
 </html>

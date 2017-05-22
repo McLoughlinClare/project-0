@@ -1,52 +1,52 @@
 console.log('JS loaded');
 
 let correctCards = 0;
+let turnNumber = 1;
 
-const numbers2 = ['Proton', 'Neutron', 'Positron', '\u03C0+','\u03C0-', 'K+','K-','\u03C0\u2070'];
-const numbers3 =['Gravitational', 'Gravitational1', 'weak', 'weak1', 'EM', 'EM1', 'Strong', 'Strong1'];
-let numbers1 = ['Proton', 'Neutron', 'Electron', 'Positron', 'Pion+', 'Kaon+', 'kaon-', 'Pion'];
+const numbersTwo = ['Proton', 'Neutron', 'Positron', '\u03C0+','\u03C0-', 'K+','K-','\u03C0\u2070'];
+const numbersThree =['Gravitational', 'Gravitational1', 'weak', 'weak1', 'EM', 'EM1', 'Strong', 'Strong1'];
+const numbersOne = ['Proton', 'Neutron', 'Electron', 'Positron', 'Pion+', 'Kaon+', 'kaon-', 'Pion'];
 
-const slots2= ['uud', 'udd','\u203Eu','u-d', '-ud','-ud', '-du', 'u-u'];
-const slots3 = ['affects all particles with mass', 'infinite range', 'affects all particles', 'responsable for beta decay', 'affects all particles with charge', 'infinite range', 'affects hadrons', 'very short range'];
-let slots1 = ['p', 'n','e', 'p-','\u03C0+', 'K+','K-','\u03C0\u2070'];
+const slotsTwo= ['uud', 'udd','\u203Eu','u-d', '-ud','-ud', '-du', 'u-u'];
+const slotsThree = ['affects all particles with mass', 'infinite range', 'affects all particles', 'responsable for beta decay', 'affects all particles with charge', 'infinite range', 'affects hadrons', 'very short range'];
+const slotsOne = ['p', 'n','e', 'p-','\u03C0+', 'K+','K-','\u03C0\u2070'];
 
 let shuffledNumbers= [];
-const numbersDeck = [numbers1, numbers2, numbers3];
-const slotDeck = [slots1, slots2, slots3];
-let slots =slots1;
-let numbers = numbers1;
+let slots =slotsOne;
+let numbers = numbersOne;
 
+let correctClassification = 0;
+//run function for the first time for turn 1.
 $( init );
 
 function init() {
   // Hide the success message
-  $('#successMessage').hide();
-  $('#successMessage').css( {
-    left: '580px',
-    top: '250px',
-    width: 0,
-    height: 0
-  } );
+  $('#levelTwo').hide();
+  $('#levelThree').hide();
+
   //show only one pair of arrays at a time
   shuffledNumbers = shuffleArray(numbers);
   console.log(slots);
   console.log(numbers);
-  cardSlotAssign();
-  cardAssign();
+  cardSlotAssign(slots);
+  cardAssign(numbers);
+
+  $('.skip-button').click(() => {
+    $('#levelTwo').show();
+    $('#levelTwo').animate( {
+
+      opacity: 1
+    } );
+    levelTwoPlay();
+  });
 }
-
-
-
-
 
 // Reset the game
 
 correctCards = 0;
 $('#cardPile').html( '' );
 
-
-
-
+//to shuffle the cards so it is different each time for the player.
 function shuffleArray(array) {
   // fisher-yates shuffle
   const newArray = array.slice(0);
@@ -87,10 +87,8 @@ function handleCardDrop( event, ui ) {
   var slotNumber = $(this).data('position');
   var cardNumber = ui.draggable.data('position');
   console.log(slotNumber, cardNumber);
-  // If the card was dropped to the correct slot,
-  // change the card colour, position it directly
-  // on top of the slot, and prevent it being dragged
-  // again
+  // If the card was dropped to the correct slot,change the card colour, position it directly
+  // on top of the slot, and prevent it being dragged again
   if ( slotNumber === cardNumber ) {
     ui.draggable.addClass( 'correct' );
     ui.draggable.draggable( 'disable' );
@@ -100,26 +98,78 @@ function handleCardDrop( event, ui ) {
     correctCards++;
   }
 
-  // If all the cards have been placed correctly then display a message
-  // and reset the cards for another go
-  if ( correctCards === 8 ) {
-    // $('#successMessage').show();
-    // $('#successMessage').animate( {
-    //   left: '380px',
-    //   top: '200px',
-    //   width: '400px',
-    //   height: '100px',
-    //   opacity: 1
-    // } );
-    for (let j=1; j<3; j++){
-      slots = slotDeck[j];
-      numbers = numbersDeck[j];
-
-      init();
-
-
-
-
-    }
+  // If all the cards have been placed correctly move onto next round, unless final round, display success message.
+  //to take player to 2nd round
+  if (correctCards === 8 && turnNumber === 1){
+    slots = slotsTwo;
+    numbers = numbersTwo;
+    turnNumber++;
+    $('#cardPile').html( '' );
+    $('#cardSlots').html( '' );
+    init();
+    //to take player onto the 3rd round.
+  } else if (correctCards === 16 && turnNumber === 2){
+    slots = slotsThree;
+    numbers = numbersThree;
+    turnNumber++;
+    $('#cardPile').html( '' );
+    $('#cardSlots').html( '' );
+    init();
+    //to complete level 1
+  } else if ( correctCards === 24 && turnNumber === 3) {
+    console.log('COMPLETED!');
+    $('#levelTwo').show();
+    $('#levelTwo').animate( {
+      opacity: 1
+    } );
+    levelTwoPlay();
   }
+}
+//END OF LEVEL 1//////START OF LEVEL 2/////
+function levelTwoPlay() {
+  console.log('levelTwoPlay');
+  console.log($('.unclassifiedParticle'));
+  $('.unclassifiedParticle').draggable({
+    containment: 'levelTwo',
+    revert: true
+
+  });
+
+  $('#mesons').droppable({
+    accept: '.mesons',
+    drop: levelTwoDropEvent
+
+  });
+  $('#baryons').droppable({
+    accept: '.baryons',
+    drop: levelTwoDropEvent
+  });
+  $('#lepton').droppable({
+    accept: '.leptons',
+    drop: levelTwoDropEvent
+  });
+}
+
+function levelTwoDropEvent( event, ui ) {
+  var particleDiv = $(this).data('position');
+  var particleClassification = ui.draggable.data('position');
+  if (particleDiv === particleClassification){
+    ui.draggable.addClass( 'correct' );
+    //ui.draggable.draggable( 'disable' );
+    //ui.draggable.position( { of: $(this), my: 'center' } );
+    ui.draggable.draggable( 'option', 'revert', false );
+    correctClassification ++;
+
+    if ( correctClassification === 10) {
+      console.log('Level Three');
+      $('#levelThree').show();
+      $('#levelThree').animate( {
+        opacity: 1
+      } );
+      levelThreePlay();
+    }
+
+  }
+
+
 }
