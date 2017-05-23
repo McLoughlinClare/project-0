@@ -166,6 +166,7 @@ function levelTwoDropEvent( event, ui ) {
         opacity: 1
       } );
       levelThreePlay();
+      buttonClick();
     }
   }
 }
@@ -199,46 +200,64 @@ const questions =[
 ];
 let answer = '';
 let correctQuestion = 0;
-
+let actualAnswer = '';
+let round = 0;
 function levelThreePlay (){
   console.log('start of level 3');
-  for (let i = 0; i<questions.length; i++){
-    const chosenQuestion = questions[i].question;
-    const answerA = questions[i].options[0];
-    const answerB = questions[i].options[1];
-    const answerC = questions[i].options[2];
-    $('div.questions').html(chosenQuestion);
-    $('button.a').html(answerA);
-    $('button.b').html(answerB);
-    $('button.c').html(answerC);
+  // for (let i = 0; i<questions.length; i++){
+    //to generate the question for each round
+  const chosenQuestion = questions[round].question;
+  const answerA = questions[round].options[0];
+  const answerB = questions[round].options[1];
+  const answerC = questions[round].options[2];
+  actualAnswer = questions[round].answer;
+  //to print the questions and the buttons
+  $('div.questions').html(chosenQuestion);
+  $('button.a').html(answerA);
+  $('button.b').html(answerB);
+  $('button.c').html(answerC);
+  console.log('answer = ' + actualAnswer);
+  // }
 
-    buttonClick();
-    if (answer !== questions[i].answer){
-      alert('try again');
-    }
+  //to determine if answer is correct.
 
-    if (answer === questions[i].answer){
-      alert('correct');
-      correctQuestion++;
-    }
-    console.log(correctQuestion);
-  }
 }
 
 function buttonClick(){
-  $('.a').click(() => {
-    let answer = 'a';
-    console.log(answer);
+
+  $('.roundThree button').click((e) => {
+    const $button = $(e.target);
+    const answer = $button.attr('class');
+
+    if (answer === actualAnswer){
+      console.log('correct');
+      correctQuestion++;
+      console.log('correctQuestion=' + correctQuestion);
+    }
+    if(round <= 3) {
+      round++;
+      levelThreePlay();
+    } else {
+      $('div.questions').html('end of game ' + correctQuestion +'/5');
+    }
 
   });
 
-  $('.b').click(() => {
-    let answer = 'b';
-    console.log(answer);
-  });
+  // $('.a').click(() => {
+  //   let answer = 'a';
+  //   console.log(answer);
+  //
+  // });
+  //
+  // $('.b').click(() => {
+  //   let answer = 'b';
+  //   console.log(answer);
+  // });
+  //
+  // $('.c').click(() => {
+  //   let answer = 'c';
+  //   console.log(answer);
+  // });
 
-  $('.c').click(() => {
-    let answer = 'c';
-    console.log(answer);
-  });
+
 }
