@@ -197,3 +197,33 @@ h1, h2, h3, h4 {
   color: 	#333;
   width: 80%;
 }
+
+#chart-container{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 300;
+  background: #F78888;
+  border: 2px solid #333;
+  border-radius: 10px;
+  box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+  padding: 20px;
+  color: 	#333;
+  width: 80%;
+}
+
+#welcome{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 300;
+  background: #5DA;
+  border: 2px solid #333;
+  border-radius: 10px;
+  box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+  padding: 20px;
+  color: 	#333;
+  width: 80%;
+}

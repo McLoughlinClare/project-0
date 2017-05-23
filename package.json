@@ -17,5 +17,8 @@
     "gulp-uglify": "^2.0.0"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "jquery-fusioncharts": "^1.0.5"
+  }
 }

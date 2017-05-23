@@ -16,15 +16,22 @@ let slots =slotsOne;
 let numbers = numbersOne;
 
 let correctClassification = 0;
+let levelOneStart = '';
 
+let levelOneEnd = '';
+let levelOneScore = '';
 
 //run function for the first time for turn 1.
 $( init );
+
+
+
 
 function init() {
   // Show only the first game.
   $('#levelTwo').hide();
   $('#levelThree').hide();
+  $('#chart-container').hide();
 
   //show only one pair of arrays at a time
   shuffledNumbers = shuffleArray(numbers);
@@ -32,6 +39,14 @@ function init() {
   console.log(numbers);
   cardSlotAssign(slots);
   cardAssign(numbers);
+//start button to collect time stamp.
+  $('.start-button').click(() => {
+    console.log('welcome clicked!');
+    $('#welcome').hide();
+    levelOneStart = (new Date()).getTime();
+    console.log(levelOneStart);
+
+  });
   //skip button for development purposes only.
   $('.skip-button').click(() => {
     $('#levelTwo').show();
@@ -117,11 +132,14 @@ function handleCardDrop( event, ui ) {
     //to complete level 1
   } else if ( correctCards === 24 && turnNumber === 3) {
     console.log('COMPLETED!');
+    levelOneEnd = (new Date()).getTime();
+    console.log(levelOneEnd);
+    levelOneScore = Math.round((100 - ((levelOneEnd - levelOneStart)/1000))/10);
+    console.log(levelOneScore);
     $('#levelTwo').show();
     $('#levelTwo').animate( {
       opacity: 1
     } );
-    $('#levelThree').hide();
     levelTwoPlay();
   }
 }
@@ -163,6 +181,7 @@ function levelTwoDropEvent( event, ui ) {
       console.log('Level Three');
       $('#levelThree').show();
       $('#levelThree').animate( {
+
         opacity: 1
       } );
       levelThreePlay();
@@ -205,7 +224,7 @@ let round = 0;
 function levelThreePlay (){
   console.log('start of level 3');
   // for (let i = 0; i<questions.length; i++){
-    //to generate the question for each round
+  //to generate the question for each round
   const chosenQuestion = questions[round].question;
   const answerA = questions[round].options[0];
   const answerB = questions[round].options[1];
@@ -238,26 +257,11 @@ function buttonClick(){
       round++;
       levelThreePlay();
     } else {
-      $('div.questions').html('end of game ' + correctQuestion +'/5');
+      console.log('results');
+      $('#chart-container').show();
+      $('#chart-container').animate( {
+        opacity: 1
+      } );
     }
-
   });
-
-  // $('.a').click(() => {
-  //   let answer = 'a';
-  //   console.log(answer);
-  //
-  // });
-  //
-  // $('.b').click(() => {
-  //   let answer = 'b';
-  //   console.log(answer);
-  // });
-  //
-  // $('.c').click(() => {
-  //   let answer = 'c';
-  //   console.log(answer);
-  // });
-
-
 }
