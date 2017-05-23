@@ -17,9 +17,11 @@ let numbers = numbersOne;
 
 let correctClassification = 0;
 let levelOneStart = '';
-
 let levelOneEnd = '';
 let levelOneScore = '';
+let levelTwoStart = '';
+let levelTwoEnd = '';
+let levelTwoScore = '';
 
 //run function for the first time for turn 1.
 $( init );
@@ -138,8 +140,11 @@ function handleCardDrop( event, ui ) {
     console.log(levelOneScore);
     $('#levelTwo').show();
     $('#levelTwo').animate( {
+
       opacity: 1
     } );
+    levelTwoStart = (new Date()).getTime();
+    console.log(levelTwoStart);
     levelTwoPlay();
   }
 }
@@ -178,6 +183,10 @@ function levelTwoDropEvent( event, ui ) {
     console.log(correctClassification);
 
     if ( correctClassification === 10) {
+      levelTwoEnd = (new Date()).getTime();
+      console.log(levelTwoEnd);
+      levelTwoScore = Math.round((100 - ((levelTwoEnd - levelTwoStart)/1000))/10);
+      console.log(levelTwoScore);
       console.log('Level Three');
       $('#levelThree').show();
       $('#levelThree').animate( {
@@ -258,10 +267,14 @@ function buttonClick(){
       levelThreePlay();
     } else {
       console.log('results');
+      $( 'div.feedbackOne' ).html('Symbols and Basics Score = ' + levelOneScore);
+      $( 'div.feedbackTwo' ).html('particle classification Score = ' + levelTwoScore );
+      $( 'div.feedbackThree' ).html('Basic Concept Score = ' + correctQuestion);
       $('#chart-container').show();
       $('#chart-container').animate( {
         opacity: 1
       } );
+
     }
   });
 }
