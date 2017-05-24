@@ -9,6 +9,7 @@
 
   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.9/jquery-ui.min.js"></script>
 
+  <script type="public/js/constants.js" charset="utf-8"></script>
   <script src="public/js/app.js" charset="utf-8"></script>
   <link rel="stylesheet" href="public/css/main.css">
 
@@ -19,20 +20,34 @@
   <h1>Project 0</h1>
   <button class="skip-button">Skip</button>
 
-  <div id="content">
 
+  <div id="levelOne" class = "levelDiv">
     <div id="cardPile"> </div>
     <div id="cardSlots"> </div>
+  </div>
 
-    <div id = "welcome">
-      <h2> Welcome to Particle physics module 1 </h2>
-      <p> throughout this assignment you will get two mini games and a quiz to complete. <br>
-        you will get a score for each topic and guidance on how to improve your score at the end. </p>
-        <button class = "start-button">Start</button>
+  <div id = "welcome" class = "levelDiv">
+    <h2> Welcome to Particle physics module 1 </h2>
+    <p> Throughout this assignment you will get two mini games and a quiz to complete. <br>
+      You will get a score for each topic and guidance on how to improve your score at the end. </p>
+      <p> <b> During this assignment you will cover the following topics: </b></p>
+      <ul class = "topicList" style="list-style-type:none">
+        <li> The two main types of particle. </li>
+        <li> The three main types of leptons. </li>
+        <li> The symbols for different subatomic particles. </li>
+        <li> Quark composition of Baryons and Mesons. </li>
+        <li> The four fundamental forces and how they behave. </li>
+      </ul>
+      <div class ="Pictures">
+        <img class = "welcomePictures" src ="Pictures/001-school.png">
+        <img class = "welcomePictures" src ="Pictures/002-atomic.png">
+        <img class = "welcomePictures" src ="Pictures/003-physics.png">
       </div>
+      <button class = "start-button">Start</button>
 
-    <div id="levelTwo">
-      <h2>Level 2</h2>
+    </div>
+    <div id="levelTwo" class = "levelDiv">
+      <h2>Task 2 - Match the description to the particle type</h2>
       <div id="choices">
         <div id="mesons" class="classifyparticle"> <h3> Mesons </h3></div>
         <div id="baryons" class="classifyparticle"> <h3> Baryons </h3> </div>
@@ -52,27 +67,34 @@
       </div>
     </div>
 
-    <div id="levelThree">
-      <h2>Level Three</h2>
-      <div class="roundThree">
-        <div class = "questions"></div>
 
-        <button class="a"></button>
-        <button class="b"></button>
-        <button class="c"></button>
+
+
+
+      <div id="levelThree" class = "levelDiv">
+        <h2>Task Three</h2>
+        <p> choose the right answer </p>
+        <div class="roundThree">
+          <div class = "questions"></div>
+
+          <button class = "a answer-button"></button>
+          <button class = "b answer-button"></button>
+          <button class = "c answer-button"></button>
+        </div>
       </div>
+
+      <div id = "studentFeedback" class = "levelDiv">
+        <h2>Results </h2>
+        <div id = "feedback">
+          <div class = "feedback feedbackOne"><h4>Symbols and Basics Score </h4><p></p></div>
+          <div class = "feedback feedbackTwo"><h4>particle classification Score</h4><p></p></div>
+          <div class = "feedback feedbackThree"><h4>Basic Concept Score</h4><p></p></div>
+        </div>
+
+      </div>
+
+
+
     </div>
-
-    <div id="chart-container">
-      <h2>Results </h2>
-      <div class="feedbackOne"></div>
-      <div class="feedbackTwo"></div>
-      <div class="feedbackThree"></div>
-
- </div>
-
-
-
-  </div>
-</body>
-</html>
+  </body>
+  </html>

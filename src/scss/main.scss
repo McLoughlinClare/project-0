@@ -3,10 +3,67 @@
 /* Add some margin to the page and set a default font and colour */
 
 body {
+  background-image: url("http://images5.fanpop.com/image/photos/31600000/physics-physicists-wallpaper-physics-31670028-1920-1080.jpg");
+  background-position: 50% 10%;
+  background-repeat: no-repeat;
   margin: 30px;
   font-family: "Georgia", serif;
   line-height: 1.8em;
-  color: #F8E9A1;
+  color: white;
+}
+
+.levelDiv{
+  text-align:center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 50%;
+  height: 500px;
+  transform: translate(-50%, -50%);
+  border: 1px solid #2d3047;;
+  border-radius: 10px;
+  box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+  padding: 20px;
+  color: 	#2d3047;
+
+}
+
+#welcome{
+  z-index: 300;
+  background: #5DA;
+}
+
+#levelOne {
+  display: none;
+  z-index: 100;
+  background: #dfd;
+  width: 80%;
+
+}
+/* "Level two*/
+#levelTwo {
+  display: none;
+  z-index: 100;
+  background: #dfd;
+  width: 80%;
+  height: 90%;
+    h2 {
+      margin-top: 0;
+    }
+}
+
+#levelThree {
+  display: none;
+  z-index: 200;
+  background: #F3D250;
+  width: 80%;
+}
+
+#studentFeedback{
+  display: none;
+  z-index: 300;
+  background: #5DA2D5;
+  width: 80%;
 }
 
 /* Give headings their own font */
@@ -15,13 +72,6 @@ h1, h2, h3, h4 {
   font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
 }
 
-/* Main content area */
-
-#content {
-  margin: 80px 70px;
-  text-align: center;
-  user-select: none;
-}
 
 /* Header/footer boxes */
 
@@ -30,15 +80,7 @@ h1, h2, h3, h4 {
   text-align: center;
   margin: 70px;
   padding: 10px;
-  background: #A8DE;
-  border: 1px solid #333;
-}
-
-.wideBox h1 {
-  font-weight: bold;
-  margin: 20px;
-  color: #A8DE;
-  font-size: 1.5em;
+  border: 1px solid #2d3047;
 }
 
 /* Slots for final card positions */
@@ -59,7 +101,7 @@ h1, h2, h3, h4 {
   width: 910px;
   height: 150px;
   padding: 20px;
-  border: 2px solid #333;
+  border: 2px solid #2d3047;
   border-radius: 10px;
   box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
 }
@@ -73,7 +115,7 @@ h1, h2, h3, h4 {
   padding: 10px;
   padding-top: 40px;
   padding-bottom: 0;
-  border: 2px solid #333;
+  border: 2px solid #2d3047;
   border-radius: 10px;
   margin: 0 0 0 10px;
   background: #5DA2D5;
@@ -92,10 +134,10 @@ h1, h2, h3, h4 {
 }
 
 #cardPile div {
-  background: #666;
+  background: #F28123;
   color: #fff;
   font-size: 16px;
-  text-shadow: 0 0 3px #000;
+  text-shadow: 0 0 1px #2d3047;
 }
 
 #cardPile div.ui-draggable-dragging {
@@ -117,25 +159,11 @@ h1, h2, h3, h4 {
 #card8.correct { background: #F78888; }
 #card9.correct { background: #F3D250; }
 
+/* level 1*/
 
-/* "Level two*/
-#levelTwo {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 100;
-  background: #dfd;
-  border: 2px solid #333;
-  border-radius: 10px;
-  box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
-  padding: 20px;
-  color: 	#333;
-  width: 80%;
-}
 
 .classifyparticle{
-  border: 2px solid #333;
+  border: 2px solid #2d3047;
   border-radius: 10px;
   width: 300px;
   height: 400px;
@@ -144,16 +172,16 @@ h1, h2, h3, h4 {
 
 }
 #mesons{
-  background-color: #F3D250;
+  background-color: #F2DC5D;
 
 }
 
 #baryons{
-  background-color: #F78888;
+  background-color: #ed217c;
 }
 
 #lepton{
-  background-color: #5DA;
+  background-color: #2de1fc;
 }
 
 .unclassifiedParticle{
@@ -161,69 +189,93 @@ h1, h2, h3, h4 {
   width: 200px;
   height: 85px;
   margin-top: 5px;
-  border: 2px solid #333;
+  border: 2px solid #2d3047;
   border-radius: 10px;
   display: inline-grid;
 }
-.unclassifiedParticle.ui-draggable-dragging { background: #90CCD4; }
+.unclassifiedParticle.ui-draggable-dragging { background: #4cb944; }
 
 
 
-#levelTwoHome {
-  position: absolute;
-  left: 700px;
-  top: 400px;
-  width: 0;
-  height: 0;
-  z-index: 100;
-  background: #dfd;
-  border: 2px solid #333;
+
+
+
+.start-button{
+  font-size: 24px;
+  height: 70px;
+  width: 120px;
+  box-shadow: .1em .1em .3em rgba(0, 0, 0, .8);
+  border: 1px solid #2d3047;
   border-radius: 10px;
-  box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
-  padding: 20px;
+  background-color: #c38d9e;
 }
 
-#levelThree {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 300;
-  background: #F3D250;
-  border: 2px solid #333;
+.answer-button{
+  font-size: 20px;
+  height: 70px;
+  width: 300px;
+  box-shadow: .1em .1em .3em rgba(0, 0, 0, .8);
+  border: 1px solid #2d3047;
   border-radius: 10px;
-  box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
-  padding: 20px;
-  color: 	#333;
-  width: 80%;
+  background-color: #c38d9e;
+  display: block;
+  padding: 10px;
+  margin: 15px auto;
 }
 
-#chart-container{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 300;
-  background: #F78888;
-  border: 2px solid #333;
-  border-radius: 10px;
-  box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
-  padding: 20px;
-  color: 	#333;
-  width: 80%;
+.answer-button.a{
+  background-color: #1b998b;
+}
+.answer-button.b{
+  background-color: #ed217c;
+}
+.answer-button.c{
+  background-color: #2de1fc;
 }
 
-#welcome{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 300;
-  background: #5DA;
-  border: 2px solid #333;
-  border-radius: 10px;
-  box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
-  padding: 20px;
-  color: 	#333;
-  width: 80%;
+.welcomePictures{
+  padding: 5px 15px;
+}
+
+.questions{
+  font-size: 26px;
+  font-weight: bold;
+  margin-bottom: 50px;
+}
+
+#feedback{
+  display: inline;
+}
+
+.feedback{
+  text-align: center;
+  float: left;
+  margin: 65px 50px;
+  border-radius: 50%;
+  width: 250px;
+  height: 250px;
+  box-shadow: .1em .1em .3em rgba(0, 0, 0, .8);
+  border: 2px solid #2d3047;
+}
+
+.feedback p{
+  font-size: 50px;
+}
+
+.feedback h4{
+  padding: 0 10px;
+  font-size: 24px;
+  margin-top: 60px;
+}
+
+.good{
+  background-color: #5DA;
+}
+
+.average{
+  background-color: #F3D250;
+}
+
+.bad{
+  background-color: #F78888;
 }
