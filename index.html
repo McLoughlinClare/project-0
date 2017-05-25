@@ -17,42 +17,37 @@
 
 </head>
 <body>
-  <h1>Project 0</h1>
-  <button class="skip-button">Skip</button>
+  <div class="fullscreen-bg">
+    <video loop muted autoplay class="fullscreen-bg__video" preload="auto" src="public/assets/videos/background.mov"></video>
 
 
-  <!-- <div id="insertName" class = "levelDiv">
-    <form>
-      First name:<br>
-      <input type="text" name="firstname">
-      <input type="submit">
-      <button class="go-button">go</button>
-    </form>
-  </div> -->
+    <button class="skip-button">Skip</button>
 
-  <div id = "welcome" class = "levelDiv">
-    <div class = "levelDiv">
-    <h2> Welcome to Particle physics module 1 </h2>
-    <p> Throughout this assignment you will get two mini games and a quiz to complete. <br>
-      You will get a score for each topic and guidance on how to improve your score at the end. </p>
-      <p> <b> During this assignment you will cover the following topics: </b></p>
-      <ul class = "topicList" style="list-style-type:none">
-        <li> The two main types of particle. </li>
-        <li> The three main types of leptons. </li>
-        <li> The symbols for different subatomic particles. </li>
-        <li> Quark composition of Baryons and Mesons. </li>
-        <li> The four fundamental forces and how they behave. </li>
-      </ul>
-      <div class ="Pictures">
-        <img class = "welcomePictures" src ="Pictures/001-school.png">
-        <img class = "welcomePictures" src ="Pictures/002-atomic.png">
-        <img class = "welcomePictures" src ="Pictures/003-physics.png">
+
+
+    <div id = "welcome" class = "levelDiv">
+      <h2> Welcome to Particle physics module 1 </h2>
+      <p> Throughout this assignment you will get two mini games and a quiz to complete. <br>
+        You will get a score for each topic and guidance on how to improve your score at the end. </p>
+        <p> <b> During this assignment you will cover the following topics: </b></p>
+        <ul class = "topicList" style="list-style-type:none">
+          <li> The two main types of particle. </li>
+          <li> The three main types of leptons. </li>
+          <li> The symbols for different subatomic particles. </li>
+          <li> Quark composition of Baryons and Mesons. </li>
+          <li> The four fundamental forces and how they behave. </li>
+        </ul>
+        <div class ="Pictures">
+          <img class = "welcomePictures" src ="Pictures/001-school.png">
+          <img class = "welcomePictures" src ="Pictures/002-atomic.png">
+          <img class = "welcomePictures" src ="Pictures/003-physics.png">
+        </div>
+        <button class = "start-button">Start</button>
       </div>
-      <button class = "start-button">Start</button>
-    </div>
     </div>
 
     <div id="levelOne" class = "levelDiv">
+      <h2>Task 1 - Match the particle to its symbol.</h2>
       <div id="cardPile"> </div>
       <div id="cardSlots"> </div>
     </div>
@@ -98,12 +93,16 @@
         <div class = "feedback feedbackOne"><h4>Symbols and Basics Score </h4><p></p></div>
         <div class = "feedback feedbackTwo"><h4>particle classification Score</h4><p></p></div>
         <div class = "feedback feedbackThree"><h4>Basic Concept Score</h4><p></p></div>
-      </div>
+        
+        <div id = "improveSymbols" class="finalmessage"><p> recognising symbols is essential to be able to answer all questions under the pressure of an exam. Try practising symbol recognisition games <a href = "#">here</a> You should also write out the symbols you struggle with the most on flashcards and test yourself at least once a day.</p> </div>
+        <div id = "improveClassification" class="finalmessage"><p> your weakest area is particle classification. read our notes on classifications <a href = "#">here</a>. Try to learn each particle type at a time, don't try and learn all three in one go.</p></div>
+        <div id = "basicConcepts" class="finalmessage"><p> Your weakest area is understanding the basic concepts of this module, you will struggle with further conepts until you have a thorough understanding. Try some of our videos  <a href = "#">here</a> You should make notes as you go along and test yourself on your notes 24 hours after writing them. </p> </div>
+        <div id = "superstar" class = "finalmessage"><p>Well done! you have scored well in all topics, you are now ready to move onto the next topic, <a href = "#"> Feynmann Diagrams </a>. However make sure you revisit this quiz in a week's time to check you still remember these concepts.</p></div>
 
+      </div>
     </div>
 
-
-
   </div>
+
 </body>
 </html>

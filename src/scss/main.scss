@@ -3,14 +3,40 @@
 /* Add some margin to the page and set a default font and colour */
 *{
   font-family:Raleway, Open Sans, Droid Sans, Roboto,arial, sans-serif;
+    color: #2d3047
 }
 body {
-  background-image: url("http://images5.fanpop.com/image/photos/31600000/physics-physicists-wallpaper-physics-31670028-1920-1080.jpg");
-  background-position: 50% 10%;
+  background-image: url("../assets/pictures/cern.jpg");
+  background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
   margin: 30px;
   line-height: 1.8em;
   color: white;
+  min-height: 100vh;
+}
+
+
+.fullscreen-bg {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+}
+
+.fullscreen-bg__video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-height: 100%;
+  min-width: 100%;
+  width: auto;
+  height: auto;
+  z-index: -1000;
+  overflow: hidden;
 }
 
 .levelDiv{
@@ -20,255 +46,214 @@ body {
   left: 50%;
   width: 50%;
   height: 500px;
+  background-color: rgba(225, 225, 225, 0.9);
   transform: translate(-50%, -50%);
   border: 1px solid #2d3047;;
-  border-radius: 10px;
-  box-shadow: .3em .3em .5em rgba(0, 0, 0, .8);
+  box-shadow: .3em .3em .5em rgba(0, 0, 0, .2);
   padding: 20px;
   color: 	#2d3047;
 
-}
 
-#insertName{
-  z-index: 300;
-  background: #5DA;
 }
-
 #welcome{
-  // display: none;
   z-index: 300;
-  background-image: url("http://images5.fanpop.com/image/photos/31600000/physics-physicists-wallpaper-physics-31670028-1920-1080.jpg");
-  background-position: 50% 10%;
-  background-repeat: no-repeat;
-  filter: blur(5px);
+  .start-button{
+    font-size: 24px;
+    height: 70px;
+    width: 120px;
+    box-shadow: .1em .1em .3em rgba(0, 0, 0, .8);
+    border: 1px solid #2d3047;
+    border-radius: 10px;
+    background-color: #ebcfc4;
+  }
+  #pictures{
+    .welcomePictures{
+      padding: 5px 15px;
+    }
+  }
 }
 
 #levelOne {
   display: none;
   z-index: 100;
-  background: #dfd;
-  width: 80%;
+  width: 70%;
+  #cardPile {
+    margin: 0 auto;
+    background: #ebcfc4;
+      div{
+        background: #d3c4be;
+        color: #2d3047;
+        font-size: 16px;
+        text-shadow: 0 0 1px #2d3047;
+          &.ui-draggable-dragging{
+            -moz-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+            -webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+            box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
+          }
+      }
+  }
+  #cardSlots {
+    margin: 50px auto 0 auto;
+    background: #e9ccb1;
+      div{
+        border-style: dashed;
+          &.hovered {
+              background: #e4dac2;
+          }
+      }
+  }
+  #cardSlots, #cardPile {
+    width: 910px;
+    height: 150px;
+    padding: 20px;
+    border: 2px solid #2d3047;
+    border-radius: 10px;
+    box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
+      div{
+        float: left;
+        width: 78px;
+        height: 98px;
+        padding: 10px;
+        padding-top: 40px;
+        padding-bottom: 0;
+        border: 2px solid #2d3047;
+        border-radius: 10px;
+        margin: 0 0 0 10px;
+        background: #d3c4be;
+          :first-child{
+            margin-left: 0;
+          }
+
+      }
+  }
 
 }
-/* "Level two*/
+
 #levelTwo {
   display: none;
   z-index: 100;
-  background: #dfd;
   width: 80%;
   height: 90%;
-    h2 {
-      margin-top: 0;
+  h2 {
+    margin-top: 0;
+  }
+  #choices{
+    .classifyparticle{
+      border: 2px solid #2d3047;
+      border-radius: 10px;
+      width: 300px;
+      height: 400px;
+      z-index: 200;
+      display: inline-block;
     }
+    #mesons{
+      background-color: #d3c4be;
+    }
+    #baryons{
+      background-color: #e4dac2;
+    }
+    #lepton{
+      background-color: #ebcfc4;
+    }
+  }
+  #answers{
+    .unclassifiedParticle{
+      background-color: #e9ccb1;
+      width: 200px;
+      height: 85px;
+      margin-top: 5px;
+      border: 2px solid #2d3047;
+      border-radius: 10px;
+      display: inline-grid;
+      &.ui-draggable-dragging { background: #999999; }
+    }
+  }
 }
 
 #levelThree {
   display: none;
   z-index: 200;
-  background: #F3D250;
   width: 50%;
+  div.roundThree{
+    .questions{
+      font-size: 26px;
+      font-weight: bold;
+      margin-bottom: 50px;
+    }
+    .answer-button{
+      font-size: 20px;
+      height: 70px;
+      width: 300px;
+      box-shadow: .1em .1em .3em rgba(0, 0, 0, .8);
+      border: 1px solid #2d3047;
+      border-radius: 10px;
+      background-color: #ebcfc4;
+      display: block;
+      padding: 10px;
+      margin: 15px auto;
+        &.a{
+          background-color: #d3c4be;
+        }
+        &.b{
+          background-color: #e4dac2;
+        }
+        &.c{
+          background-color: #ebcfc4;
+        }
+
+    }
+  }
 }
 
 #studentFeedback{
   display: none;
   z-index: 300;
-  background: #5DA2D5;
   width: 80%;
+  #feedback{
+    display: inline;
+    .feedback{
+      text-align: center;
+      float: left;
+      margin: 20px 60px 0 60px;
+      border-radius: 50%;
+      width: 250px;
+      height: 250px;
+      box-shadow: .1em .1em .3em rgba(0, 0, 0, .8);
+      border: 2px solid #2d3047;
+      p{
+        font-size: 50px;
+      }
+      h4{
+        padding: 0 10px;
+        font-size: 24px;
+        margin-top: 60px;
+      }
+    }
+    .finalmessage{
+      text-align:center;
+      width: 100%;
+      height: 200px;
+      //background-color: rgba(225, 225, 225, 0.1);
+      transform: translate(-50%, -50%);
+      color: 	#2d3047;
+      margin: 0 auto;
+      &#improveSymbols{
+        display: none;
+      }
+
+      &#improveClassification{
+        display: none;
+      }
+      &#improveBasicConcepts{
+        display: none;
+      }
+      &#superstar{
+        display: none;
+      }
+    }
+  }
 }
 
-/* Give headings their own font */
-
-h1, h2, h3, h4 {
-  font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
-}
-
-
-/* Header/footer boxes */
-
-.wideBox {
-  clear: both;
-  text-align: center;
-  margin: 70px;
-  padding: 10px;
-  border: 1px solid #2d3047;
-}
-
-/* Slots for final card positions */
-
-#cardSlots {
-  margin: 50px auto 0 auto;
-  background: #374785;
-}
-
-/* The initial pile of unsorted cards */
-
-#cardPile {
-  margin: 0 auto;
-  background: #5DA2D5;
-}
-
-#cardSlots, #cardPile {
-  width: 910px;
-  height: 150px;
-  padding: 20px;
-  border: 2px solid #2d3047;
-  border-radius: 10px;
-  box-shadow: 0 0 .3em rgba(0, 0, 0, .8);
-}
-
-/* Individual cards and slots */
-
-#cardSlots div, #cardPile div {
-  float: left;
-  width: 78px;
-  height: 98px;
-  padding: 10px;
-  padding-top: 40px;
-  padding-bottom: 0;
-  border: 2px solid #2d3047;
-  border-radius: 10px;
-  margin: 0 0 0 10px;
-  background: #2de1fc;
-}
-
-#cardSlots div:first-child, #cardPile div:first-child {
-  margin-left: 0;
-}
-
-#cardSlots div.hovered {
-  background: #aaa;
-}
-
-#cardSlots div {
-  border-style: dashed;
-}
-
-#cardPile div {
-  background: #ed217c;
-  color: #fff;
-  font-size: 16px;
-  text-shadow: 0 0 1px #2d3047;
-}
-
-#cardPile div.ui-draggable-dragging {
-  -moz-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
-  -webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
-  box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
-}
-
-/* Individually coloured cards */
-
-.correct { background: #F2DC5D; }
-
-
-/* level 1*/
-
-
-.classifyparticle{
-  border: 2px solid #2d3047;
-  border-radius: 10px;
-  width: 300px;
-  height: 400px;
-  z-index: 200;
-  display: inline-block;
-
-}
-#mesons{
-  background-color: #F2DC5D;
-
-}
-
-#baryons{
-  background-color: #ed217c;
-}
-
-#lepton{
-  background-color: #2de1fc;
-}
-
-.unclassifiedParticle{
-  background-color: white;
-  width: 200px;
-  height: 85px;
-  margin-top: 5px;
-  border: 2px solid #2d3047;
-  border-radius: 10px;
-  display: inline-grid;
-}
-.unclassifiedParticle.ui-draggable-dragging { background: #4cb944; }
-
-
-
-
-
-
-.start-button{
-  font-size: 24px;
-  height: 70px;
-  width: 120px;
-  box-shadow: .1em .1em .3em rgba(0, 0, 0, .8);
-  border: 1px solid #2d3047;
-  border-radius: 10px;
-  background-color: #c38d9e;
-}
-
-.answer-button{
-  font-size: 20px;
-  height: 70px;
-  width: 300px;
-  box-shadow: .1em .1em .3em rgba(0, 0, 0, .8);
-  border: 1px solid #2d3047;
-  border-radius: 10px;
-  background-color: #c38d9e;
-  display: block;
-  padding: 10px;
-  margin: 15px auto;
-}
-
-.answer-button.a{
-  background-color: #1b998b;
-}
-.answer-button.b{
-  background-color: #ed217c;
-}
-.answer-button.c{
-  background-color: #2de1fc;
-}
-
-.welcomePictures{
-  padding: 5px 15px;
-}
-
-.questions{
-  font-size: 26px;
-  font-weight: bold;
-  margin-bottom: 50px;
-}
-
-#feedback{
-  display: inline;
-}
-
-.feedback{
-  text-align: center;
-  float: left;
-  margin: 65px 50px;
-  border-radius: 50%;
-  width: 250px;
-  height: 250px;
-  box-shadow: .1em .1em .3em rgba(0, 0, 0, .8);
-  border: 2px solid #2d3047;
-}
-
-.feedback p{
-  font-size: 50px;
-}
-
-.feedback h4{
-  padding: 0 10px;
-  font-size: 24px;
-  margin-top: 60px;
-}
 
 .good{
   background-color: #5DA;
