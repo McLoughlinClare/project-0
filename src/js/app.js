@@ -306,7 +306,7 @@ $(()=>{
         } else if ((levelTwoScore < levelOneScore) && (levelTwoScore < levelThreeScore)){
           $('#improveClassification').show();
         } else if ((levelThreeScore < levelTwoScore) && (levelThreeScore < levelOneScore)){
-          $('#improveSymbols').show();
+          $('#basicConcepts').show();
         }
 
 
