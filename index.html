@@ -21,12 +21,17 @@
   <button class="skip-button">Skip</button>
 
 
-  <div id="levelOne" class = "levelDiv">
-    <div id="cardPile"> </div>
-    <div id="cardSlots"> </div>
-  </div>
+  <!-- <div id="insertName" class = "levelDiv">
+    <form>
+      First name:<br>
+      <input type="text" name="firstname">
+      <input type="submit">
+      <button class="go-button">go</button>
+    </form>
+  </div> -->
 
   <div id = "welcome" class = "levelDiv">
+    <div class = "levelDiv">
     <h2> Welcome to Particle physics module 1 </h2>
     <p> Throughout this assignment you will get two mini games and a quiz to complete. <br>
       You will get a score for each topic and guidance on how to improve your score at the end. </p>
@@ -44,8 +49,15 @@
         <img class = "welcomePictures" src ="Pictures/003-physics.png">
       </div>
       <button class = "start-button">Start</button>
-
     </div>
+    </div>
+
+    <div id="levelOne" class = "levelDiv">
+      <div id="cardPile"> </div>
+      <div id="cardSlots"> </div>
+    </div>
+
+
     <div id="levelTwo" class = "levelDiv">
       <h2>Task 2 - Match the description to the particle type</h2>
       <div id="choices">
@@ -68,33 +80,30 @@
     </div>
 
 
+    <div id="levelThree" class = "levelDiv">
+      <h2>Task Three</h2>
+      <p> choose the right answer </p>
+      <div class="roundThree">
+        <div class = "questions"></div>
 
-
-
-      <div id="levelThree" class = "levelDiv">
-        <h2>Task Three</h2>
-        <p> choose the right answer </p>
-        <div class="roundThree">
-          <div class = "questions"></div>
-
-          <button class = "a answer-button"></button>
-          <button class = "b answer-button"></button>
-          <button class = "c answer-button"></button>
-        </div>
+        <button class = "a answer-button"></button>
+        <button class = "b answer-button"></button>
+        <button class = "c answer-button"></button>
       </div>
+    </div>
 
-      <div id = "studentFeedback" class = "levelDiv">
-        <h2>Results </h2>
-        <div id = "feedback">
-          <div class = "feedback feedbackOne"><h4>Symbols and Basics Score </h4><p></p></div>
-          <div class = "feedback feedbackTwo"><h4>particle classification Score</h4><p></p></div>
-          <div class = "feedback feedbackThree"><h4>Basic Concept Score</h4><p></p></div>
-        </div>
-
+    <div id = "studentFeedback" class = "levelDiv">
+      <h2>Results </h2>
+      <div id = "feedback">
+        <div class = "feedback feedbackOne"><h4>Symbols and Basics Score </h4><p></p></div>
+        <div class = "feedback feedbackTwo"><h4>particle classification Score</h4><p></p></div>
+        <div class = "feedback feedbackThree"><h4>Basic Concept Score</h4><p></p></div>
       </div>
-
-
 
     </div>
-  </body>
-  </html>
+
+
+
+  </div>
+</body>
+</html>

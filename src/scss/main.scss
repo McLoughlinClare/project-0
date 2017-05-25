@@ -1,13 +1,14 @@
 
 
 /* Add some margin to the page and set a default font and colour */
-
+*{
+  font-family:Raleway, Open Sans, Droid Sans, Roboto,arial, sans-serif;
+}
 body {
   background-image: url("http://images5.fanpop.com/image/photos/31600000/physics-physicists-wallpaper-physics-31670028-1920-1080.jpg");
   background-position: 50% 10%;
   background-repeat: no-repeat;
   margin: 30px;
-  font-family: "Georgia", serif;
   line-height: 1.8em;
   color: white;
 }
@@ -28,9 +29,18 @@ body {
 
 }
 
-#welcome{
+#insertName{
   z-index: 300;
   background: #5DA;
+}
+
+#welcome{
+  // display: none;
+  z-index: 300;
+  background-image: url("http://images5.fanpop.com/image/photos/31600000/physics-physicists-wallpaper-physics-31670028-1920-1080.jpg");
+  background-position: 50% 10%;
+  background-repeat: no-repeat;
+  filter: blur(5px);
 }
 
 #levelOne {
@@ -56,7 +66,7 @@ body {
   display: none;
   z-index: 200;
   background: #F3D250;
-  width: 80%;
+  width: 50%;
 }
 
 #studentFeedback{
@@ -118,7 +128,7 @@ h1, h2, h3, h4 {
   border: 2px solid #2d3047;
   border-radius: 10px;
   margin: 0 0 0 10px;
-  background: #5DA2D5;
+  background: #2de1fc;
 }
 
 #cardSlots div:first-child, #cardPile div:first-child {
@@ -134,7 +144,7 @@ h1, h2, h3, h4 {
 }
 
 #cardPile div {
-  background: #F28123;
+  background: #ed217c;
   color: #fff;
   font-size: 16px;
   text-shadow: 0 0 1px #2d3047;
@@ -148,16 +158,8 @@ h1, h2, h3, h4 {
 
 /* Individually coloured cards */
 
-#card0.correct { background: #F78888; }
-#card1.correct { background: #F3D250; }
-#card2.correct { background: #90CCD4; }
-#card3.correct { background: #5DA; }
-#card4.correct { background: #F78888; }
-#card5.correct { background: #F3D250; }
-#card6.correct { background: #90CCD4; }
-#card7.correct { background: #5DA; }
-#card8.correct { background: #F78888; }
-#card9.correct { background: #F3D250; }
+.correct { background: #F2DC5D; }
+
 
 /* level 1*/
 

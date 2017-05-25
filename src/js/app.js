@@ -5,11 +5,11 @@ let correctCards = 0;
 let turnNumber = 1;
 
 const numbersTwo = ['Proton', 'Neutron', 'k\u2070', '\u03C0+','\u03C0-', 'K+','K-','\u03C0\u2070'];
-const numbersThree =['Gravitational', 'Gravitational1', 'weak', 'weak1', 'EM', 'EM1', 'Strong', 'Strong1'];
+const numbersThree =['Q', 'B', 'S', '\u03B3', 'b', '\u03BD', 'L', 'e\u2070 '];
 const numbersOne = ['Proton', 'Neutron', 'Electron', 'Positron', 'tau', 'Kaon+', 'Muon', 'Pion'];
 
 const slotsTwo= ['uud', 'udd','ds\u0304','u\u0304d', 'd\u0304u','us\u0304', 'u\u0304s', 'uu\u0304'];
-const slotsThree = ['affects all particles with mass', 'infinite range', 'affects all particles', 'responsable for beta decay', 'affects all particles with charge', 'infinite range', 'affects hadrons', 'very short range'];
+const slotsThree = ['Charge', 'Baryon number', 'Strangeness', 'photon', 'Bottom Quark', 'neutrino', 'Lepton number', 'positron'];
 const slotsOne = ['p', 'n','e', 'p\u0304','\u03C4', 'K+','\u03BC','\u03C0\u2070'];
 
 let shuffledNumbers= [];
@@ -31,8 +31,8 @@ let correctClassification = 0;
 const questions =[
   {
     answer: 'a answer-button',
-    question: `Which of the fundamental forces do Lepton's not experience?`,
-    options: [`Strong Nuclear Force`, `Weak Interaction`, `Electromagnetic force`]
+    question: `the creation of a particle and its anti-particle when a gamma ray photon passes close to a nucleus.`,
+    options: [`Pair Production`, `Pair Annihilation`, `Anti-matter`]
   },
   {
     answer: 'c answer-button',
@@ -73,6 +73,13 @@ function levelOnePlay() {
   shuffledNumbers = shuffleArray(numbers);
   cardSlotAssign(slots);
   cardAssign(numbers);
+
+  // $('.go-button').click(() => {
+  //   console.log('go clicked!');
+  //   $('#insertName').hide(10);
+  //   $('#welcome').show(500);
+  // });
+
   //start button to collect time stamp.
   $('.start-button').click(() => {
     console.log('welcome clicked!');
@@ -168,6 +175,7 @@ function handleCardDrop( event, ui ) {
     levelOneScore = Math.round((100 - ((levelOneEnd - levelOneStart)/1000))/10);
     console.log(levelOneScore);
     $('#levelTwo').show();
+    $('#levelOne').hide();
     console.log('leveltworevealed');
     levelTwoStart = (new Date()).getTime();
     levelTwoPlay();
@@ -212,9 +220,7 @@ function levelTwoDropEvent( event, ui ) {
       console.log(levelTwoScore);
       console.log('Level Three');
       //Reveal level three and hide level two.
-      $('#levelThree').show().animate( {
-        opacity: 1
-      } );
+      $('#levelThree').show(500);
       $('#levelTwo').hide();
 
       levelThreePlay();
