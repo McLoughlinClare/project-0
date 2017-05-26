@@ -76,7 +76,7 @@ $(()=>{
   let levelThreeScore = 0;
   let actualAnswer = '';
   let round = 0;
-  let totalScore = levelOneScore + levelThreeScore + levelTwoScore
+
   //////////////////end of constants////////////////////////////////
 
 
@@ -245,7 +245,6 @@ $(()=>{
   //////////////////////////level 3///////////////////////////////////////////
   function levelThreePlay (){
     console.log('start of level 3');
-    // for (let i = 0; i<questions.length; i++){
     //to generate the question for each round
     const chosenQuestion = questions[round].question;
     const answerA = questions[round].options[0];
@@ -293,23 +292,20 @@ $(()=>{
         if(levelThreeScore < 3) levelThreeClass = 'bad';
         $('.feedbackThree').addClass(levelThreeClass);
 
-        console.log('student feedback loading');
         $levelThree.hide();
-        $('#studentFeedback').show().animate( {
-          opacity: 1
-        } );
+        $('#studentFeedback').show();
+
+        const totalScore = levelOneScore + levelThreeScore + levelTwoScore;
 
         if (totalScore > 13) {
           $('#superstar').show();
-        } else if ((levelOneScore < levelTwoScore) && (levelOneScore < levelThreeScore)){
+        } else if (levelOneScore < (levelTwoScore && levelThreeScore)){
           $('#improveSymbols').show();
-        } else if ((levelTwoScore < levelOneScore) && (levelTwoScore < levelThreeScore)){
+        } else if (levelTwoScore < (levelOneScore && levelThreeScore)){
           $('#improveClassification').show();
-        } else if ((levelThreeScore < levelTwoScore) && (levelThreeScore < levelOneScore)){
+        } else if (levelThreeScore < (levelTwoScore && levelOneScore)){
           $('#basicConcepts').show();
         }
-
-
       }
     });
   }

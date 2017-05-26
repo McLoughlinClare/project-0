@@ -84,7 +84,6 @@ body {
         background: #d3c4be;
         color: #2d3047;
         font-size: 16px;
-        text-shadow: 0 0 1px #2d3047;
           &.ui-draggable-dragging{
             -moz-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
             -webkit-box-shadow: 0 0 .5em rgba(0, 0, 0, .8);
@@ -235,7 +234,8 @@ body {
       color: 	#2d3047;
       padding-top: 20px;
       clear: both;
-      font-size: 16px;
+      font-size: 20px;
+
       &#improveSymbols{
         display: none;
       }
@@ -243,7 +243,7 @@ body {
       &#improveClassification{
         display: none;
       }
-      &#improveBasicConcepts{
+      &#basicConcepts{
         display: none;
       }
       &#superstar{
@@ -252,7 +252,6 @@ body {
     }
   }
 }
-
 
 .good{
   background-color: #5DA;
