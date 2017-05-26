@@ -79,11 +79,6 @@ $(()=>{
 
   //////////////////end of constants////////////////////////////////
 
-
-  //run function for the first time for turn 1.
-
-  // levelOnePlay();
-
   function levelOnePlay() {
     // Show only the first game.
     //show only one pair of arrays at a time
@@ -92,7 +87,7 @@ $(()=>{
     cardAssign(numbers);
 
   }
-    //start button to collect time stamp.
+    //start button to collect time stamp for score.
   $startButton.click(() => {
     levelOnePlay();
     console.log('welcome clicked!');
@@ -201,7 +196,6 @@ $(()=>{
     $unclassifiedParticle.draggable({
       containment: 'levelTwo',
       revert: true
-
     });
 
     $mesons.droppable({
@@ -223,7 +217,6 @@ $(()=>{
     var particleDiv = $(this).data('position');
     var particleClassification = ui.draggable.data('position');
     if (particleDiv === particleClassification){
-      ui.draggable.addClass( 'correct' );
       ui.draggable.draggable( 'option', 'revert', false );
       correctClassification ++;
 
